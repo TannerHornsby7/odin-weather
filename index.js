@@ -30,8 +30,8 @@ document.getElementById('loc').onkeydown = function(e){
     if(e.key == "Enter"){
         console.log("weather location entered")
         getWeather(input.value).then(weather => {
-            local.textContent = input.value.toUpperCase();
-             temp.textContent = 1.8*(weather.main.temp-273).toFixed(1) + 32;
+            local.textContent = fixName(input.value);
+             temp.textContent = getTemperature(weather.main.temp);
              desc.textContent = weather.weather[0].description.toUpperCase();
             console.log(temp);
         });
@@ -45,3 +45,26 @@ get current temperature => h3.temp
 get current main and description => h4.desc => background image
 
 */
+
+function fixName(name){
+    var text = name;
+    text = text.toLowerCase()
+        .split(' ')
+        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+        .join(' ');
+
+    return text;
+}
+
+function getTemperature(temp) {
+    const atoe = document.querySelector('button.atoe').textContent;
+    if(atoe === "American Mode (°F)") {
+        return (1.8*(temp-273) + 32).toFixed(1) + "°F";
+    } else {
+        return (temp - 273.15).toFixed(1) + "°C";
+    }
+}
+
+function switchTemperatures() {
+    /*btn function which switches all temperatures rendering*/
+}
