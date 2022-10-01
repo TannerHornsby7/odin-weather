@@ -60,6 +60,7 @@ table {
   font-weight: 1000;
   font-style: normal;
 }
+h3,
 * {
   margin: 0;
   padding: 0;
@@ -86,6 +87,76 @@ a {
 input {
   border: none;
   outline: none;
+}
+
+body {
+  background-color: ivory;
+  display: grid;
+  grid-template-rows: 1fr 9fr 1fr;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: "Open Sans";
+  color: ivory;
+  background-color: rgb(53, 7, 7);
+  box-shadow: 2px 2px 2px ivory;
+  transition: all 0.5s ease;
+}
+.header .title {
+  font-size: xx-large;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-family: "Open Sans";
+  color: ivory;
+  background-color: rgb(53, 7, 7);
+  box-shadow: 2px 2px 2px ivory;
+  transition: all 0.5s ease;
+}
+
+.main {
+  padding-top: 10px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.main .curr {
+  align-self: center;
+  font-family: "Open Sans";
+  color: ivory;
+  background-color: rgb(53, 7, 7);
+  box-shadow: 2px 2px 2px ivory;
+  transition: all 0.5s ease;
+  background-color: rgba(53, 7, 7, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  gap: 15px;
+  justify-content: center;
+}
+.main .week {
+  font-family: "Open Sans";
+  color: rgb(53, 7, 7);
+  background-color: ivory;
+  box-shadow: 2px 2px 2px rgb(53, 7, 7);
+  transition: all 0.5s ease;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
 }
 
 /*# sourceMappingURL=output.css.map */

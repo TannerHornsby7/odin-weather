@@ -1,1 +1,78 @@
-@import 'formatting';
+@use 'formatting';
+
+// theme colors
+$lightcolor: ivory;
+$darkcolor: rgb(53, 7, 7);
+
+//setting theme
+@mixin theme($dark: true) {
+    font-family: 'Open Sans';
+    @if ($dark) {
+        color: $lightcolor;
+        background-color: $darkcolor;
+        box-shadow: 2px 2px 2px $lightcolor;
+    } @else {
+        color: $darkcolor;
+        background-color: $lightcolor;
+        box-shadow: 2px 2px 2px $darkcolor; 
+    }
+    transition: all .5s ease;
+}
+
+body {
+    background-color: $lightcolor;
+    display: grid;
+    grid-template-rows: 1fr 9fr 1fr;
+
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    @include theme;
+    .title {
+        font-size: xx-large;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    @include theme;
+}
+
+.main {
+    padding-top: 10px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .curr {
+        align-self: center;
+        @include theme;
+        background-color: rgba($darkcolor, $alpha: .4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 30%;
+        padding-right: 30%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        gap: 15px;
+        justify-content: center;
+
+    }
+
+    .week {
+        @include theme(false);
+        background-color: white;
+        display: flex;
+        justify-content: space-around;
+        padding: 15px;
+    }
+}
