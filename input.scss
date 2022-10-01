@@ -68,58 +68,46 @@ body {
 
     }
     .curr {
+        width: 70%;
         margin: 0px 25px 0px 25px;
-        text-align: center;
-        label {
-            margin-bottom: -70px;
+        input {
+            margin: 0 10px 0px 10px;
+            height: 30px;
         }
         align-self: center;
         @include theme;
         background-color: rgba($darkcolor, $alpha: .4);
         display: flex;
         flex-direction: column;
-        align-items: center;
-        padding-left: 30%;
-        padding-right: 30%;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding: 15px 0 15px 0;
         gap: 15px;
         justify-content: space-between;
         height: 350px;  
 
         .weatherinfo {
-            h3 {
+            h3.temp {
                 font-size: 50px;
             }
             h4 {
                 margin-top: 10px;
             }
-        }
-
-    }
-
-    .wfk{
-        margin: 10px;
-        text-align: center;
-        h2 {
-            padding: 10px;
-            font-size: x-large;
-            font-weight: 700;
-        }
-        .week {
-            background-color: rgba(gray, $alpha: .1);
-            display: grid;
-            place-items: center;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            row-gap: 10px;
-            padding: 10px;
-            div {
-                padding: 15px;
-                @include theme(false);
-                background-color: white;
-                height: 150px;
-                min-width: 200px;
+            .details {
+                margin-top: 15px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                place-items: center;
+                p {
+                    font-size: 15px;
+                    padding: 3px;
+                }
             }
         }
+
     }
+    img {
+        width: 35%;
+        height: 200px;
+        align-self: center;
+    }
+
 }

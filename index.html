@@ -16,61 +16,29 @@
     <div class="main">
         <h2>Today's Forecast</h2>
         <div class="curr">
-            <h2 class="location">London</h2>
+            <h2 class="location"></h2>
             <div class="weatherinfo">
-                <h3 class="temp">76 degrees ☀️</h3>
-                <h4 class="desc">Mostly Cloudy</h4>
+                <h3 class="temp"></h3>
+                <h4 class="desc"></h4>
+                <div class="details">
+                    <div>
+                        <p>Feels like</p>
+                        <h3 id="feel"></h3>
+                    </div>
+                    <div>
+                        <p>Today's High</p>
+                        <h3 id="high"></h3>
+                    </div>
+                    <div>
+                        <p>Humidity</p>
+                        <h3 id="hum"></h3>
+                    </div>
+                </div>
             </div>
             <label for="loc"></label>
             <input type="text" name="loc" id="loc" placeholder="Enter Another Location">
         </div>
-        <div class="wfk">
-            <h2>This Week's Forecast</h2>
-            <div class="week">
-                <div id="day1">
-                    <h4>Monday</h4>
-                    <img src="" alt="">
-                    <h5>temp</h5>
-                    <h6>notes</h6>
-                </div>
-                <div id="day2">
-                    <h4>Tuesday</h4>
-                    <img src="" alt="">
-                    <h5>temp</h5>
-                    <h6>notes</h6>
-                </div>
-                <div id="day3">
-                    <h4>Wednesday</h4>
-                    <img src="" alt="">
-                    <h5>temp</h5>
-                    <h6>notes</h6>
-                </div>
-                <div id="day4">
-                    <h4>Thursday</h4>
-                    <img src="" alt="">
-                    <h5>temp</h5>
-                    <h6>notes</h6>
-                </div>
-                <div id="day5">
-                    <h4>Friday</h4>
-                    <img src="" alt="">
-                    <h5>temp</h5>
-                    <h6>notes</h6>
-                </div>
-                <div id="day6">
-                    <h4>Saturday</h4>
-                    <img src="" alt="">
-                    <h5>temp</h5>
-                    <h6>notes</h6>
-                </div>
-                <div id="day7">
-                    <h4>Sunday</h4>
-                    <img src="" alt="">
-                    <h5>temp</h5>
-                    <h6>notes</h6>
-                </div>
-            </div>
-        </div>
+        <img id="giph" src="" alt="Today's Forecast">
     </div>
     <div class="footer">
         <p>Created By Tanner Hornsby</p>
