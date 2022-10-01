@@ -27,13 +27,21 @@ body {
 }
 
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    place-items: center;
     padding: 20px;
     @include theme;
     .title {
+        grid-column: 2 / 3;
         font-size: xx-large;
+    }
+    .atoe {
+        grid-column: 3 / 4;
+        padding: 5% 2% 5% 2%;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
@@ -46,13 +54,25 @@ body {
 }
 
 .main {
-    padding-top: 10px;
     align-self: flex-start;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    text-align: center;
+    margin-top: 15px;
 
+    h2 {
+        padding: 10px;
+        font-size: x-large;
+        font-weight: 700;
+
+    }
     .curr {
+        margin: 0px 25px 0px 25px;
+        text-align: center;
+        label {
+            margin-bottom: -70px;
+        }
         align-self: center;
         @include theme;
         background-color: rgba($darkcolor, $alpha: .4);
@@ -64,15 +84,42 @@ body {
         padding-top: 15px;
         padding-bottom: 15px;
         gap: 15px;
-        justify-content: center;
+        justify-content: space-between;
+        height: 350px;  
+
+        .weatherinfo {
+            h3 {
+                font-size: 50px;
+            }
+            h4 {
+                margin-top: 10px;
+            }
+        }
 
     }
 
-    .week {
-        @include theme(false);
-        background-color: white;
-        display: flex;
-        justify-content: space-around;
-        padding: 15px;
+    .wfk{
+        margin: 10px;
+        text-align: center;
+        h2 {
+            padding: 10px;
+            font-size: x-large;
+            font-weight: 700;
+        }
+        .week {
+            background-color: rgba(gray, $alpha: .1);
+            display: grid;
+            place-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            row-gap: 10px;
+            padding: 10px;
+            div {
+                padding: 15px;
+                @include theme(false);
+                background-color: white;
+                height: 150px;
+                min-width: 200px;
+            }
+        }
     }
 }

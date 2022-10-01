@@ -60,6 +60,7 @@ table {
   font-weight: 1000;
   font-style: normal;
 }
+h2,
 h3,
 * {
   margin: 0;
@@ -96,9 +97,9 @@ body {
 }
 
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  place-items: center;
   padding: 20px;
   font-family: "Open Sans";
   color: ivory;
@@ -107,7 +108,15 @@ body {
   transition: all 0.5s ease;
 }
 .header .title {
+  grid-column: 2/3;
   font-size: xx-large;
+}
+.header .atoe {
+  grid-column: 3/4;
+  padding: 5% 2% 5% 2%;
+}
+.header .atoe:hover {
+  cursor: pointer;
 }
 
 .footer {
@@ -123,13 +132,21 @@ body {
 }
 
 .main {
-  padding-top: 10px;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  text-align: center;
+  margin-top: 15px;
+}
+.main h2 {
+  padding: 10px;
+  font-size: x-large;
+  font-weight: 700;
 }
 .main .curr {
+  margin: 0px 25px 0px 25px;
+  text-align: center;
   align-self: center;
   font-family: "Open Sans";
   color: ivory;
@@ -145,18 +162,45 @@ body {
   padding-top: 15px;
   padding-bottom: 15px;
   gap: 15px;
-  justify-content: center;
+  justify-content: space-between;
+  height: 350px;
 }
-.main .week {
+.main .curr label {
+  margin-bottom: -70px;
+}
+.main .curr .weatherinfo h3 {
+  font-size: 50px;
+}
+.main .curr .weatherinfo h4 {
+  margin-top: 10px;
+}
+.main .wfk {
+  margin: 10px;
+  text-align: center;
+}
+.main .wfk h2 {
+  padding: 10px;
+  font-size: x-large;
+  font-weight: 700;
+}
+.main .wfk .week {
+  background-color: rgba(128, 128, 128, 0.1);
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 10px;
+  padding: 10px;
+}
+.main .wfk .week div {
+  padding: 15px;
   font-family: "Open Sans";
   color: rgb(53, 7, 7);
   background-color: ivory;
   box-shadow: 2px 2px 2px rgb(53, 7, 7);
   transition: all 0.5s ease;
   background-color: white;
-  display: flex;
-  justify-content: space-around;
-  padding: 15px;
+  height: 150px;
+  min-width: 200px;
 }
 
 /*# sourceMappingURL=output.css.map */
