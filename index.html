@@ -11,27 +11,27 @@
 <body>
     <div class="header">
         <h2 class="title">☁️ Weather App</h2>
-        <button class="atoe" title="Fahrenheit or Celsius" onclick="changeTemperatures()">American Mode (°F)</button>
+        <button type="button" class="atoe" title="Fahrenheit or Celsius" onclick="switchTemperatures()">American Mode (°F)</button>
     </div>
     <div class="main">
         <h2>Today's Forecast</h2>
         <div class="curr">
             <h2 class="location"></h2>
             <div class="weatherinfo">
-                <h3 class="temp"></h3>
+                <h3 id="bigboi" class="temp"></h3>
                 <h4 class="desc"></h4>
                 <div class="details">
                     <div>
                         <p>Feels like</p>
-                        <h3 id="feel"></h3>
+                        <h3 id="feel" class="temp"></h3>
                     </div>
                     <div>
                         <p>Today's High</p>
-                        <h3 id="high"></h3>
+                        <h3 id="high" class="temp"></h3>
                     </div>
                     <div>
                         <p>Humidity</p>
-                        <h3 id="hum"></h3>
+                        <h3 id="hum" class="temp"></h3>
                     </div>
                 </div>
             </div>

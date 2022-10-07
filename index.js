@@ -84,6 +84,25 @@ function getTemperature(temp) {
     }
 }
 
+function flipTemperature(temp) {
+    const atoe = document.querySelector('button.atoe');
+    if(atoe.textContent === "American Mode (°F)") {
+        return (temp *  (9.0 / 5.0 ) + 32).toFixed(1) + "°F";
+    } else {
+        return ((5 / 9.0 ) * (temp - 32)).toFixed(1) + " °C";
+    }
+}
+
 function switchTemperatures() {
+    console.log('switch initiated');
+    let atoe = document.querySelector('button.atoe');
     /*btn function which switches all temperatures rendering*/
+    const temps = document.querySelectorAll('.temp');
+    if(atoe.textContent === "American Mode (°F)") {
+        atoe.textContent = "European Mode (°C)"
+    } else {
+        atoe.textContent = "American Mode (°F)"
+    }
+    
+    temps.forEach(temp => temp.textContent = flipTemperature(parseInt(temp.textContent)));
 }
