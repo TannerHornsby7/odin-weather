@@ -1,6 +1,6 @@
 async function getWeather(place) {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${place}&APPID=d7afc9d7d30ef48de59698fbaef3a3cb`);
-    
+    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=fd2c1bf3e1b142a792e190311232006&q=${place}&aqi=no`);
+    console.log(response);
     if(response.status === 200) {
         const json = await response.json();
         return json;
@@ -26,8 +26,8 @@ const local = document.querySelector('h2.location');
 const temp = document.querySelector('h3.temp');
 const desc = document.querySelector('h4.desc');
 const feel = document.querySelector('h3#feel');
-const hum = document.querySelector('h3#hum');
-const high = document.querySelector('h3#high');
+const wind = document.querySelector('h3#wind');
+const humidity = document.querySelector('h3#humidity');
 const giph = document.getElementById('giph');
 
 
@@ -37,11 +37,12 @@ renderWeather('Dallas');
 function renderWeather(loc) {
     getWeather(loc).then(weather => {
     local.textContent = fixName(loc);
-    temp.textContent = getTemperature(weather.main.temp);
-    desc.textContent = fixName(weather.weather[0].description);
-    feel.textContent = getTemperature(weather.main.feels_like);
-    hum.textContent = weather.main.humidity;
-    high.textContent = getTemperature(weather.main.temp_max);
+    temp.textContent = getTemp(weather, 'temp');
+    desc.textContent = fixName(weather.location.name);
+    feel.textContent = getTemp(weather, 'feelslike');
+    hum.textContent = weather.current.humidity + "%";
+    wind.textContent = weather.current.wind_mph + " mph";
+
     getGiph(desc.textContent).then(obj => {
         giph.src = obj.data.images.original.url});
     });
@@ -57,14 +58,6 @@ document.getElementById('loc').onkeydown = function(e){
     }
 };
 
-/*
-Circuitry Work Required:
-
-get current temperature => h3.temp
-get current main and description => h4.desc => background image
-
-*/
-
 function fixName(name){
     var text = name;
     text = text.toLowerCase()
@@ -75,21 +68,12 @@ function fixName(name){
     return text;
 }
 
-function getTemperature(temp) {
+function getTemp(json, param) {
     const atoe = document.querySelector('button.atoe').textContent;
     if(atoe === "American Mode (°F)") {
-        return (1.8*(temp-273) + 32).toFixed(1) + " °F";
+        return json['current'][`${param}_f`] + " °F";
     } else {
-        return (temp - 273.15).toFixed(1) + "°C";
-    }
-}
-
-function flipTemperature(temp) {
-    const atoe = document.querySelector('button.atoe');
-    if(atoe.textContent === "American Mode (°F)") {
-        return (temp *  (9.0 / 5.0 ) + 32).toFixed(1) + "°F";
-    } else {
-        return ((5 / 9.0 ) * (temp - 32)).toFixed(1) + " °C";
+        return json['current'][`${param}_c`] + "°C";
     }
 }
 
