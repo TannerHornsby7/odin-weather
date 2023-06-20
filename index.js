@@ -78,6 +78,8 @@ function getTemp(json, param) {
 }
 
 function switchTemperatures() {
+    // get the current location
+    const local = document.querySelector('h2.location');
     console.log('switch initiated');
     let atoe = document.querySelector('button.atoe');
     /*btn function which switches all temperatures rendering*/
@@ -87,6 +89,6 @@ function switchTemperatures() {
     } else {
         atoe.textContent = "American Mode (°F)"
     }
-    
-    temps.forEach(temp => temp.textContent = flipTemperature(parseInt(temp.textContent)));
+    // call renderWeather to update temperatures
+    renderWeather(local.textContent);
 }
