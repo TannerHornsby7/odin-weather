@@ -1,5 +1,5 @@
 async function getWeather(place) {
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=fd2c1bf3e1b142a792e190311232006&q=${place}&aqi=no`);
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=fd2c1bf3e1b142a792e190311232006&q=${place}&aqi=no`);
     console.log(response);
     if(response.status === 200) {
         const json = await response.json();
@@ -26,7 +26,7 @@ const local = document.querySelector('h2.location');
 const temp = document.querySelector('h3.temp');
 const desc = document.querySelector('h4.desc');
 const feel = document.querySelector('h3#feel');
-const wind = document.querySelector('h3#wind');
+const condition = document.querySelector('h3#condition');
 const humidity = document.querySelector('h3#humidity');
 const giph = document.getElementById('giph');
 
@@ -41,7 +41,7 @@ function renderWeather(loc) {
     desc.textContent = fixName(weather.location.name);
     feel.textContent = getTemp(weather, 'feelslike');
     hum.textContent = weather.current.humidity + "%";
-    wind.textContent = weather.current.wind_mph + " mph";
+    condition.textContent = weather.current.condition.text;
 
     getGiph(desc.textContent).then(obj => {
         giph.src = obj.data.images.original.url});
